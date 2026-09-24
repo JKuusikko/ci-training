@@ -1,0 +1,25 @@
+name: CI workflow
+
+on:
+    push:
+        branches: main
+    pull_request:
+        branches: main
+
+jobs:
+    Node-CI-pipeline:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v7.0.0
+              with:
+                node-version: 24
+            - name: Install debendencies
+              run: nmp ci
+            - name: Run linter
+              run: npm run lint
+            - name: Run unit test
+              run: npm run test
+            - name: Build application
+              run: npm build
