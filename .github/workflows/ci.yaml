@@ -16,7 +16,7 @@ jobs:
               with:
                 node-version: 24
             - name: Install debendencies
-              run: nmp ci
+              run: npm ci
             - name: Run linter
               run: npm run lint
             - name: Run unit test
